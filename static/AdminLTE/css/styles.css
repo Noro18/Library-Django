@@ -1,0 +1,146 @@
+:root {
+    --light-bg: #f8f9fa;
+    --lighter-bg: #ffffff;
+    --accent: #4a90e2;
+    --text-primary: #212529;
+    --border-color: #dee2e6;
+    --primary-color: #fff; /* Added missing variable */
+}
+
+/* -------------------- COMMON STYLES ----------------------- */
+.gradient-header {
+    background: linear-gradient(to right, #004085, rgb(28, 39, 50));
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--border-color);
+}
+
+.detail-item {
+    background: var(--primary-color);
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-left: 3px solid var(--accent) !important;
+}
+
+.detail-item:hover {
+    background-color: rgba(74, 144, 226, 0.05);
+    transform: translateX(5px);
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.05);
+}
+
+.text-accent {
+    color: var(--accent) !important;
+    transition: color 0.3s ease;
+}
+
+.btn-accent {
+    background: var(--accent);
+    color: white !important;
+    transition: all 0.3s ease;
+}
+
+.btn-accent:hover {
+    background: #357abd;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(74, 144, 226, 0.3);
+}
+
+.underline-hover {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+}
+
+.underline-hover::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    bottom: -5px;
+    left: 50%;
+    background: linear-gradient(45deg, #4a90e2, #6a11cb);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+
+.underline-hover:hover::after {
+    width: 100%;
+    left: 0;
+    transform: translateX(0);
+}
+
+/* -------------------- PROFILE SPECIFIC STYLES ----------------------- */
+.profile-card {
+    background: var(--lighter-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    height: 100%;
+}
+
+.profile-img {
+    width: 150px;
+    height: 150px;
+    border: 3px solid var(--accent);
+    box-shadow: 0 4px 15px rgba(74, 144, 226, 0.1);
+}
+
+.delete-btn {
+    background: #dc3545;
+    color: white !important;
+    transition: all 0.3s ease;
+}
+
+.delete-btn:hover {
+    background: #bb2d3b;
+    transform: translateY(-2px);
+}
+
+/* -------------------- BOOK DETAILS SPECIFIC STYLES ----------------------- */
+.book-card {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    height: 100%;
+}
+
+.cover-image {
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    max-height: 200px;
+    object-fit: cover;
+}
+
+.cover-image:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 3px 15px rgba(26, 11, 243, 0.05);
+}
+
+.detail-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+/* -------------------- MODAL STYLES ----------------------- */
+.modal-header {
+    background: var(--primary-color);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.modal-content {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.text-white {
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    font-weight: 800 !important;
+}

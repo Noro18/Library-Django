@@ -3,8 +3,8 @@ from django.http import HttpResponse
 
 # Create your views here.
 def home_render(request):
-    return render(request, 'home.html' )
+    return render(request, 'home_page.html' )
 
-def dashboard_render(request):
-    return render(request, 'content.html' )
+# def dashboard_render(request):
+#     return render(request, 'content.html' )
     

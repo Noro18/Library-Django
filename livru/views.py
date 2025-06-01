@@ -33,6 +33,11 @@ def edit_livru(request, pk):
 def delete_livru(request, prim):
     # livru = Livru.objects.get(pk=prim) ida bele uza ida ne'e mais diak liu uza get_object_or_404
 
-    livru = get_object_or_404(Livru, pk = prim)
-
-    return render(request, 'delete.html', {'livru_object': livru})
+    livro = get_object_or_404(Livru, pk = prim) # ida uza method ida ne'e atu handle mos se quando nai object la existe ou 404 
+    if request.method == "POST":
+        livro.delete()  # ida ne'e atu delete object ne'e
+        return redirect('livru')
+        # print("deleeted")
+    else:
+        return render(request, 'delete.html', {'livru_object': livro})
+    

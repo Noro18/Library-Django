@@ -1,5 +1,17 @@
 {% extends "home.html" %}
 
 {% block content %}
-    <h1>Home Content nian</h1>
+    <div class="container mt-5 d-flex justify-content-center">
+        <div class="w-100 bg-light border border-3 rounded-4 shadow-lg p-5">
+            <div class="text-center">
+                <h1 class="mb-3 display-2 fw-bold text-primary">Ola i Bem-Vindo!</h1>
+                <h3 class="mb-4 text-muted">to the Library Management System</h3>
+                <p class="mb-4 lead">
+                    Maneja livro, Membru, no aktividade empresta.<br>
+                    Uza navigasaun atu eksplora sistema ida ne'e.
+                </p>
+                <a href="{% url 'livru' %}" class="btn btn-primary btn-lg px-5">Explore Biblioteca</a>
+            </div>
+        </div>
+    </div>
 {% endblock content %}

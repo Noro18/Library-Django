@@ -75,7 +75,7 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-navy elevation-3">
     <!-- Brand Logo -->
-    <a class="brand-link">
+    <a href="{% url "home" %}" class="brand-link">
       <img src="" alt="Assembly Logo" class="" style="opacity: .8">
       <span class="brand-text font-weight-light">ALS</span>
     </a>
@@ -88,7 +88,7 @@
           <img src="{% static 'images/admin.png' %}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Admin Site</a>
+          <a href="{% url "home" %}" class="d-block">Admin Site</a>
         </div>
       </div>
 
@@ -103,7 +103,7 @@
               </p>
             </a>
             <li class="nav-item">
-              <a href="" class="nav-link">
+              <a href="{% url "autor" %}" class="nav-link">
                 <i class="bi bi-person-circle nav-icon"></i>
                 <p>
                   Author

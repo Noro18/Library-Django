@@ -16,16 +16,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-# from . import lib_app
-
+from django.contrib.admin.views.decorators import staff_member_required
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('admin/', staff_member_required(admin.site.index), name='admins'),
     path('', include('home.urls')),
     path('empresta/', include('empresta.urls')),
     path('livru/', include('livru.urls')),
     path('autor/', include('autor.urls')),
-    # path('livru', include('livru.urls'))
-
 ]
 

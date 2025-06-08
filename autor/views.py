@@ -4,8 +4,13 @@ from .forms import AutorForm
 # Create your views here.
 
 def autor(request):
+    form = AutorForm() # jadi instance husi from maibe nia prense hotu ona ho valor husi post nian
     autor = Autor.objects.all()
-    return render(request, 'autor.html', {'autors': autor} )
+    return render(request, 'autor.html', 
+                {
+                'autors': autor, 
+                'form': form
+            })
 
 def aumenta_autor(request):
     if request.method == 'POST': # ida ne'e atu check nia request ne POST ou Get tanba nia form nia url mai ba iha view ida entaun tenki hare nia mehtod se post anta nia save data

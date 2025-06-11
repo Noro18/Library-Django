@@ -25,5 +25,6 @@ urlpatterns = [
     path('empresta/', include('empresta.urls')),
     path('livru/', include('livru.urls')),
     path('autor/', include('autor.urls')),
+    path('publisher/', include('publisher.urls')),
 ]
 

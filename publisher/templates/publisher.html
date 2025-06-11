@@ -1,7 +1,76 @@
-{% extends "home.html" %}
+{% extends "home.html" %} 
 
 {% block content %}
+<div class="text-center p-3 rounded shadow" style="background: linear-gradient(to right, #004085,rgb(28, 39, 50)); color: white;">
+    <h2><i class="bi bi-journal-text"></i> Lista Ba Publisher sira</h2>
+    <small class="text-muted ">Lista Kompletu kona ba publisher Sira iha sistema</small>
+</div>
+<hr class="bg-dark bold">
 
-    <h1>Content Publisher nian</h1>
+<div class="container-fluid">
+  <h1 class="mb-1">Books List</h1>
+  <button type="button" class="btn btn-success mb-2" data-toggle="modal" data-target="#addBookModal">
+    <i class="bi bi-pencil"></i> Aumenta Publisher
+  </button>
 
-{% endblock %}
+  {% include "modal_add_publisher.html" %}
+  <div class="table-embed-responsive">   
+    <!-- DataTables CSS -->
+    {% comment %} <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css"/> {% endcomment %}
+    
+    <table id="books-table" class="table table-striped table-bordered table-hover align-middle">
+      <thead class="table-dark">
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Naran Publisher</th>
+          <th scope="col">Enderesu</th>
+          <th scope="col">Email</th>
+          <th scope="col">Nu Telf</th>
+          <th scope="col">Actions</th>
+          </tr>
+      </thead>
+      <tbody>
+      {% for publisher in publisher_list %}
+      <tr>
+      <td>{{ publisher.id }}</td>
+      <td>{{ publisher.naran_publisher }}</td>
+      <td>{{ publisher.enderesu }}</td>
+      <td>{{ publisher.email }}</td>
+      <td>{{ publisher.nu_telf }}</td>
+      <td>
+      <a href="{% url 'edit_livru' pk=publisher.id %}" class="btn btn-sm btn-primary me-2"><i class="bi bi-pencil"></i>Edit</a>
+      <form action="{% url 'delete_livru' prim=publisher.id %}" style="display:inline;" method="POST">
+      {% csrf_token %}
+      <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this book?');">
+      <i class="bi bi-trash"></i>Delete</button>
+      </form>
+      </td>
+      </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+    <!-- DataTables JS -->
+    {% comment %} <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script> {% endcomment %}
+    <script>
+      $(document).ready(function() {
+        $('#books-table').DataTable();
+        // Modal form submission (example, no backend integration)
+        $('#addBookForm').on('submit', function(e) {
+          e.preventDefault();
+          // You can add AJAX here to submit form data
+          $('#addBookModal').modal('hide');
+          this.reset();
+        });   
+      });
+    </script>
+       
+      </tbody>
+    </table>
+
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock content %}

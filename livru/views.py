@@ -3,7 +3,7 @@ from .models import Livru
 from .forms import LivruForm
 # Create your views here.
 
-def empresta_render(request):
+def livru(request):
     form = LivruForm() # iha ne'e nia kria form ida ho inrance ba object ida determina ona
     lista_livru = Livru.objects.all()
     return render(request, 'livru.html', {

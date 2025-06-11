@@ -9,7 +9,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <form action={% url "aumenta_livru" %} method="post" novalidate>
+        <form action={% url "aumenta_publisher" %} method="post" novalidate>
             {% csrf_token %}
             {% for field in form %}
                 <div class="mb-3">

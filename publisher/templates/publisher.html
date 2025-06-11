@@ -38,8 +38,8 @@
       <td>{{ publisher.email }}</td>
       <td>{{ publisher.nu_telf }}</td>
       <td>
-      <a href="{% url 'edit_livru' pk=publisher.id %}" class="btn btn-sm btn-primary me-2"><i class="bi bi-pencil"></i>Edit</a>
-      <form action="{% url 'delete_livru' prim=publisher.id %}" style="display:inline;" method="POST">
+      <a href="#" class="btn btn-sm btn-primary me-2"><i class="bi bi-pencil"></i>Edit</a>
+      <form action="#" style="display:inline;" method="POST">
       {% csrf_token %}
       <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this book?');">
       <i class="bi bi-trash"></i>Delete</button>

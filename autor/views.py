@@ -20,4 +20,15 @@ def aumenta_autor(request):
             return redirect('autor')
     else:
         form = AutorForm() # se quando nai metodo GET ou seidauk iah dados entaun ni kria deit form mamuk ida
-    return render(request, 'add_autor.html', {'form': form}) # e 
+    return render(request, 'add_autor.html', {'form': form})
+
+def edit_autor(request, pk):
+    autor = Autor.objects.get(pk=pk)
+    if request.method == 'POST':
+        form = AutorForm(request.POST, instance=autor)
+        if form.is_valid():
+            form.save()
+            return redirect('autor')
+    else:
+        form = AutorForm(instance=autor) # iha ne'e nia kria form ida ho inrance ba object ida determina ona
+    return render(request, 'edit_Autor.html', {'form': form, 'edit': True, 'autor': autor})

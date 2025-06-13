@@ -1,5 +1,6 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Autor
+from django.http import HttpResponse
 from .forms import AutorForm
 # Create your views here.
 
@@ -32,3 +33,13 @@ def edit_autor(request, pk):
     else:
         form = AutorForm(instance=autor) # iha ne'e nia kria form ida ho inrance ba object ida determina ona
     return render(request, 'edit_Autor.html', {'form': form, 'edit': True, 'autor': autor})
+
+
+def delete_autor(request, prim):
+    autor = get_object_or_404(Autor ,pk=prim)
+    if request.method == "POST":
+        autor.delete()  # ida ne'e atu delete object ne'e
+        return redirect('autor')
+        # print("deleeted")
+    else:
+        return HttpResponse("404, autor not found")

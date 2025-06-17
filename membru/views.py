@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Membru
 from .forms import MembruForm
 
@@ -33,3 +33,11 @@ def edit_membru(request, pk):
         form = MembruForm(instance=membru) # iha ne'e nia kria form ida ho inrance ba object ida determina ona
     return render(request, 'edit_membru.html', {'form': form, 'edit': True, 'membru': membru, 'naran': naran})
 
+def delete_membru(request, pk):
+    livro = get_object_or_404(Membru, pk = pk) # ida uza method ida ne'e atu handle mos se quando nai object la existe ou 404 
+    if request.method == "POST":
+        livro.delete()  # ida ne'e atu delete object ne'e
+        return redirect('membru')
+        # print("deleeted")
+    else:
+        return render(request, 'membru.html', {'livru_object': livro})

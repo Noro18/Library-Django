@@ -15,5 +15,5 @@ class Membru(models.Model):
     sexu = models.CharField(max_length=5, choices=KATEGORIA_SEXU, default='M')
     data_moris = models.DateField(auto_now=False, auto_now_add=False, null=True, blank=True)
 
-    def __str__(self):
-        return {self.naran_membru}
+    # def __str__(self):
+    #     return {self.naran_membru}

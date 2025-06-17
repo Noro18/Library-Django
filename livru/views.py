@@ -30,7 +30,7 @@ def edit_livru(request, pk):
             return redirect('livru')
     else:
         form = LivruForm(instance=livru) # iha ne'e nia kria form ida ho inrance ba object ida determina ona
-    return render(request, 'add_livru.html', {'form': form, 'edit': True, 'livru': livru})
+    return render(request, 'edit_livru.html', {'form': form, 'edit': True, 'livru': livru})
 
 def delete_livru(request, prim):
     # livru = Livru.objects.get(pk=prim) ida bele uza ida ne'e mais diak liu uza get_object_or_404

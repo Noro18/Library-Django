@@ -1,4 +1,5 @@
-from django.shortcuts import render, redirect, get_list_or_404
+from django.shortcuts import render, redirect, get_object_or_404
+from django.http import HttpResponse
 from .models import Publisher
 from .forms import PublisherForm
 
@@ -34,3 +35,10 @@ def edit_publisher(request, pk):
         form = PublisherForm(instance=publisher) # iha ne'e nia kria form ida ho inrance ba object ida determina ona
     return render(request, 'edit_publisher.html', {'form': form, 'edit': True, 'publisher': publisher, 'naran': naran})
 
+def delete_publisher(request, pk):
+    publisher = get_object_or_404(Publisher, pk = pk)
+    if request.method == 'POST':
+        publisher.delete()
+        return redirect('publisher')
+    else:
+        return HttpResponse("Publisher la existe")

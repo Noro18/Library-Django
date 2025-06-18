@@ -20,4 +20,17 @@ def aumenta_publisher(request):
             return redirect('publisher')
     else:
         form = PublisherForm() # se quando nai metodo GET ou seidauk iah dados entaun ni kria deit form mamuk ida
-    return render(request, 'add_autor.html', {'form': form}) # e 
+    return render(request, 'add_autor.html', {'form': form})
+
+def edit_publisher(request, pk):
+    publisher = Publisher.objects.get(pk=pk) # iha ne'e atu fori object sira ho pk ne'ebe define iha tablea
+    naran = Publisher.objects.get(id_publisher = pk)
+    if request.method == 'POST':
+        form = PublisherForm(request.POST, instance=publisher) # ida ne'e nia fill hotu ho valor husi submited form 
+        if form.is_valid():
+            form.save()
+            return redirect('publisher')
+    else:
+        form = PublisherForm(instance=publisher) # iha ne'e nia kria form ida ho inrance ba object ida determina ona
+    return render(request, 'edit_publisher.html', {'form': form, 'edit': True, 'publisher': publisher, 'naran': naran})
+

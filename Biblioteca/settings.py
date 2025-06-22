@@ -44,7 +44,8 @@ INSTALLED_APPS = [
     'livru',
     'membru',
     'autor',
-    'publisher'
+    'publisher',
+    'dashboard'
     
     
 ]

@@ -1,0 +1,55 @@
+{% extends "home.html" %}
+
+{% block content %}
+<div class="container py-4">
+    <div class="row justify-content-center">
+        <div class="col-lg-10 col-md-12">
+            <div class="card shadow mb-4">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="mb-0">Borrowing Detail (Empresta #{{ empresta.id_empresta }})</h4>
+                </div>
+                <div class="card-body">
+                    <dl class="row mb-0">
+                        <dt class="col-sm-4">Member</dt>
+                        <dd class="col-sm-8">{{ empresta.id_membru.naran_membru }}</dd>
+                        <dt class="col-sm-4">Borrow Date</dt>
+                        <dd class="col-sm-8">{{ empresta.data_empresta }}</dd>
+                        <dt class="col-sm-4">Due Date</dt>
+                        <dd class="col-sm-8">{{ empresta.data_hatama }}</dd>
+                        <dt class="col-sm-4">Status</dt>
+                        <dd class="col-sm-8">{{ empresta.status|title }}</dd>
+                    </dl>
+                </div>
+            </div>
+            <div class="card shadow">
+                <div class="card-header bg-secondary text-white">
+                    <h5 class="mb-0">Borrowed Book Copies</h5>
+                </div>
+                <div class="card-body p-0">
+                    <table class="table table-striped mb-0">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Book Copy</th>
+                                <th>Actual Return Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for detail in details %}
+                            <tr>
+                                <td>{{ forloop.counter }}</td>
+                                <td>{{ detail.id_kopia }}</td>
+                                <td>{% if detail.data_hatama_actual %}{{ detail.data_hatama_actual }}{% else %}<span class="text-warning">Not returned</span>{% endif %}</td>
+                            </tr>
+                        {% empty %}
+                            <tr><td colspan="3" class="text-center">No book copies borrowed.</td></tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <a href="{% url 'empresta' %}" class="btn btn-outline-primary mt-3">Back to List</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

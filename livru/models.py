@@ -39,5 +39,4 @@ class LivruKopia(models.Model):
     status = models.CharField(max_length=50, choices=STATUS_CHOICES, default='available')
 
     def __str__(self):
-        return f"{self.id_kopia} {self.barcode}"
-    
+        return f'{self.id_livru.titulu_livru} (Copy #{self.id_kopia})'

@@ -6,6 +6,7 @@ urlpatterns = [
     path('add', views.add_livru, name='aumenta_livru'),
     path('edit/<int:pk>', views.edit_livru, name='edit_livru'),
     path('delete/<int:prim>', views.delete_livru, name='delete_livru'),
+    path('aumenta_copy/<int:primary>', views.aumenta_copy, name='aumenta_copy'),
     # path('dashboard/', views.dashboard_render, name='dashboard')
 
 ]

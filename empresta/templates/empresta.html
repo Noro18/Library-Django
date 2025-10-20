@@ -48,8 +48,8 @@
                 {% endif %}
             </td>
             <td>
-                <a href="{% url 'empresta_detail' empresta.id_empresta %}" class="btn btn-sm btn-info"><i class="bi bi-eye"></i> Detail</a>
-                <a href="{% url 'empresta_returned' empresta.id_empresta %}" class="btn btn-sm btn-success"><i class="bi bi-check-circle-fill"></i>  Returned</a>
+                <a href="{% url "empresta_detail" empresta.id_empresta %}" class="btn btn-sm btn-info"><i class="bi bi-eye"></i> Detail</a>
+                <a href="{% url "empresta_returned" pk=empresta.id_empresta %}" class="btn btn-sm btn-success"><i class="bi bi-check-circle-fill"></i>  Returned</a>
             </td>
         </tr>
         {% endfor %}

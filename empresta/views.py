@@ -1,4 +1,5 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
+from django.http import HttpResponse
 from django.contrib import messages
 from .models import Empresta, Empresta_Detail
 from .forms import EmprestaForm, EmprestaDetailFormSet
@@ -49,5 +50,8 @@ def empresta_detail(request, id_empresta):
         'details': details
     })
 
-def empresta_returned(request, id_empresta):
-    return render(request, 'empresta.html')
+def empresta_returned(request, pk):
+    empresta = get_object_or_404(Empresta, pk=pk)
+    empresta.status = 'returned'
+    empresta.save(update_fields=['status'])
+    return redirect('empresta')

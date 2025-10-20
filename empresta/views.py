@@ -29,7 +29,7 @@ def add_empresta(request):
                 detail.id_empresta = empresta
                 detail.save()
             messages.success(request, 'Borrowing record added successfully!')
-            return redirect('empresta_list')  # Change to your list view name
+            return redirect('empresta')  # Change to your list view name
         else:
             messages.error(request, 'Please correct the errors below.')
     else:
@@ -48,3 +48,6 @@ def empresta_detail(request, id_empresta):
         'empresta': empresta,
         'details': details
     })
+
+def empresta_returned(request, id_empresta):
+    return render(request, 'empresta.html')

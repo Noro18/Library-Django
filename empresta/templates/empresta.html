@@ -39,7 +39,7 @@
             <td>
                 {% if empresta.display_status == 'borrowing' %}
                     <span class="btn btn-sm btn-primary disabled" style="pointer-events:none;">Borrowing</span>
-                {% elif empresta.display_status == 'late' %}
+                {% elif empresta.display_status == 'overdue' %}
                     <span class="btn btn-sm btn-danger disabled" style="pointer-events:none;">Overdue</span>
                 {% elif empresta.display_status == 'returned' %}
                     <span class="btn btn-sm btn-success disabled" style="pointer-events:none;">Returned</span>
@@ -49,6 +49,7 @@
             </td>
             <td>
                 <a href="{% url 'empresta_detail' empresta.id_empresta %}" class="btn btn-sm btn-info"><i class="bi bi-eye"></i> Detail</a>
+                <a href="{% url 'empresta_returned' empresta.id_empresta %}" class="btn btn-sm btn-success"><i class="bi bi-check-circle-fill"></i>  Returned</a>
             </td>
         </tr>
         {% endfor %}

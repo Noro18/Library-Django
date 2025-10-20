@@ -22,7 +22,8 @@ class Empresta(models.Model):
     @property
     def display_status(self):
         if self.is_overdue:
-            return 'late'
+            self.status = 'overdue'
+            self.save(update_fields=['status'])
         return self.status
     def __str__(self):
         return f"Empresta {self.id_empresta} - {self.id_membru} - {self.status}"

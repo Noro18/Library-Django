@@ -43,3 +43,12 @@ def delete_livru(request, prim):
     else:
         return render(request, 'delete.html', {'livru_object': livro})
     
+def aumenta_copy(request, primary):
+    livru = Livru.objects.get(pk=primary)
+    return render(request, 'aumenta_copy.html', context={
+        'primary_key':primary,
+        'livrus': livru
+    })
+
+
+

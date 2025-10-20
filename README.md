@@ -4,11 +4,9 @@
 
 Objetivu husi ami kria sistema ida ne'e atu ami aprende kona ba oinsa kria website ho tech stach: Htlm, Css(Bootstrap), no JS ba Front-end no mos Django ba nia backend no Database SQLite
 
-## Atu Asesu
 
+# Oinsa atu run sistema 
 
-### Render
-make sure django installa ona, se karik seiduak installa bele uza command `pip install django`
-se karik hakarak atu hare ou render tampilan husi sistema bele uzza command `py manage.py runserver` ba iha Sistema Operativos Windows
-
-no ba funsionalidade extra install mos `pip install django-autocomplete-light`
+1. tenki iha djanog bele uza commando `pip install django`
+2. installa mos installa mos django-auto-complete-light uza commando `pip install django-autocomplete-light`
+3. `cd` ba iha folder Library-Django nia laran no uza commando `py manage.py runserver` na windows no `python manage.py runserver` ba linux
